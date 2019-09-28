@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>oss-upload</title>
+    <script src="/node_modules/ali-oss/dist/aliyun-oss-sdk.js"></script>
+</head>
+<body>
+    <div>
+        <input type="file" id="file"></input>
+    </div>
+    <script>
+        document.getElementById('file').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+
+            return fetch(`/api/sts?key=${file.name}`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(resp => {
+                return resp.json();
+            }).then(data => {
+                const ossConfig = {
+                    region: data.region,
+                    accessKeyId: data.accessKeyId,
+                    accessKeySecret: data.accessKeySecret,
+                    bucket: data.bucket,
+                    stsToken: data.stsToken,
+                    endpoint: `${location.protocol}${data.action}`,
+                    cname: true,
+                };
+                const client = new OSS(ossConfig);
+
+                return client.multipartUpload(data.key, file, {
+                    progress(p, checkpoint) {
+                        console.log(p);
+                    },
+                }).then((resp) => {
+                    console.log(resp);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
