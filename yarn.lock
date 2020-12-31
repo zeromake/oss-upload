@@ -1260,9 +1260,9 @@ upath@^1.0.2:
   integrity sha1-j2bbzVWog6za5ECK+LA1pQRMGJQ=
 
 urijs@^1.19.0:
-  version "1.19.1"
-  resolved "https://registry.npm.taobao.org/urijs/download/urijs-1.19.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Furijs%2Fdownload%2Furijs-1.19.1.tgz#5b0ff530c0cbde8386f6342235ba5ca6e995d25a"
-  integrity sha1-Ww/1MMDL3oOG9jQiNbpcpumV0lo=
+  version "1.19.5"
+  resolved "https://registry.yarnpkg.com/urijs/-/urijs-1.19.5.tgz#119683ab4b2fb0bd637e5ea6dd9117bcac68d3e4"
+  integrity sha512-48z9VGWwdCV5KfizHsE05DWS5fhK6gFlx5MjO7xu0Krc5FGPWzjlXEVV0nPMrdVuP7xmMHiPZ2HoYZwKOFTZOg==
 
 urllib@^2.33.1:
   version "2.34.1"
